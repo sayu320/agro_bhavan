@@ -1,0 +1,50 @@
+
+
+{%extends 'layout.html'%}
+{%block content%}
+
+
+    <body>
+        <br><br><br><br><br><br><br><br><br><br>
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">NAME</th>
+                    <th scope="col">DESCRIPTION</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">IMAGE</th>
+                    <th scope="col">NO_OF_REMAINING_ITEMS</th>
+                    <th scope="col">EDIT</th>
+                    <th scope="col">DELETE</th>
+                    
+                    
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in a%}
+                <tr>
+                   
+                    <td>{{i.name}}</td>
+                    <td>{{i.description}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.quantity}}</td>
+                    <td><img src="{{i.image.url}}" style="width: 60px; height: 60px;">{{i.image}}</td>
+                    <td>{{i.no_of_remaining_items}}</td>
+
+
+            
+                    
+                    <td><a class="btn btn-success btn-sm" href="/edit_products/{{i.id}}">Edit</a></td>
+                    <td><a class="btn btn-success btn-sm" href="/delete_products/{{i.id}}">Delete</a></td>
+                    
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        
+    </body>
+
+{%endblock%}

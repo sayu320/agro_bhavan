@@ -1,0 +1,125 @@
+
+
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+<h2 style="text-align:center"> PROFILE</h2>
+<br><br>
+<br><br>
+
+
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-lg-4" style="width: 160%">
+    <div class="card" style="width: 160%;height: 200px;">
+
+        {% if request.session.ut == "officer" %}
+          
+          {% if i.photo %}
+          <p><img src="{{ i.photo.url }}"><a href="{{ i.photo.url }}" style="width: 60px; height: 60px;" ></a></p><br>
+          {% endif %}
+            <p> NAME :{{ i.name }}</p><br>
+            <p>DESIGNATION :{{ i.designation }}</p><br>
+             
+          
+            <button><a class="btn btn-primary btn-sm" href="/edit_officer">Edit</a></button>
+          
+            {% elif request.session.ut == "farmer" %}
+
+            {% if i.photo %}
+            <p><img src="{{ i.photo.url }}"><a href="{{ i.photo.url }}" style="width: 60px; height: 60px;" ></a></p><br>
+            {% endif %}
+              <p> NAME :{{ i.name }}</p><br>
+              
+              <button><a class="btn btn-primary btn-sm" href="/edit_farmer">Edit</a></button>
+            
+              {% elif request.session.ut == "shops" %}
+
+              {% if i.photo %}
+            <p><img src="{{ i.photo.url }}"><a href="{{ i.photo.url }}" style="width: 60px; height: 60px;" ></a></p><br>
+            {% endif %}
+              <p> NAME :{{ i.name }}</p><br>
+              <p> Type :{{ i.type }}</p><br>
+              
+              <button><a class="btn btn-primary btn-sm" href="/edit_shops">Edit</a></button>
+            
+{%endif%}
+              
+    </div>
+   </div></div>
+  </div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+{% endblock %}

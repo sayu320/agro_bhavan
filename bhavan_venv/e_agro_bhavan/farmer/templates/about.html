@@ -1,0 +1,149 @@
+{%extends 'layout.html'%}
+{%block content%}
+{% load static %}
+
+	<!--/header-->
+</section>
+<script src="{% static 'assets/js/jquery-3.3.1.min.js'%}"></script> <!-- Common jquery plugin -->
+<!--bootstrap working-->
+<script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+<!--bootstrap working//-->
+<!--/MENU-JS-->
+<script>
+	$(window).on("scroll", function () {
+	  var scroll = $(window).scrollTop();
+  
+	  if (scroll >= 80) {
+		$("#site-header").addClass("nav-fixed");
+	  } else {
+		$("#site-header").removeClass("nav-fixed");
+	  }
+	});
+  
+	//Main navigation Active Class Add Remove
+	$(".navbar-toggler").on("click", function () {
+	  $("header").toggleClass("active");
+	});
+	$(document).on("ready", function () {
+	  if ($(window).width() > 991) {
+		$("header").removeClass("active");
+	  }
+	  $(window).on("resize", function () {
+		if ($(window).width() > 991) {
+		  $("header").removeClass("active");
+		}
+	  });
+	});
+  </script>
+  <!--//MENU-JS-->
+<!-- disable body scroll which navbar is in active -->
+<script>
+$(function () {
+  $('.navbar-toggler').click(function () {
+    $('body').toggleClass('noscroll');
+  })
+});
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--theme switcher dark and light mode script-->
+<script>
+	const bodyElement = document.querySelector('body');
+	const themeToggle = document.querySelector('#themeToggle');
+	const darkModeMql = window.matchMedia('(prefers-color-scheme: dark)');
+  
+	const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : userPreference(darkModeMql);
+  
+	if (currentTheme) {
+	  bodyElement.classList.add(currentTheme);
+  
+	  if (currentTheme === 'dark') {
+		themeToggle.checked = true;
+	  }
+	}
+  
+	function userPreference(e) {
+	  if (e.matches) {
+		bodyElement.classList.add("dark");
+		return "dark"
+	  } else {
+		bodyElement.classList.remove("dark");
+		return ""
+	  }
+	}
+  
+	darkModeMql.addListener(userPreference);
+  
+	function themeSwitcher(e) {
+	  if (e.target.checked) {
+		bodyElement.classList.add('dark');
+		localStorage.setItem('theme', 'dark');
+	  } else {
+		bodyElement.classList.remove('dark');
+		localStorage.setItem('theme', '');
+	  }
+	}
+  
+	themeToggle.addEventListener('change', themeSwitcher);
+  </script>
+  <!--theme switcher dark and light mode script//-->
+
+
+
+<!-- breadcrumbs -->
+    <section class="w3l-inner-banner-main">
+        <div class="about-inner about editContent">
+            <div class="container">   
+            <div class="breadcrumbs-sub">
+                <ul class="breadcrumbs-custom-path">
+                    <li class="right-side propClone"><a href="index.html" class="editContent">Home <span class="fa fa-angle-right" aria-hidden="true"></span></a> <p></li>
+                    <li class="active editContent">About</li>
+                </ul>
+            </div>
+</div>
+
+   </div>
+    </section>
+<!-- breadcrumbs //-->
+
+<section class="w3l-content-with-photo-4"  id="about">
+    <div class="content-with-photo4-block editContent">
+        <div class="container">
+
+                <div class="my-bio">
+                    <img src="{% static 'assets/images/s3.jpg'%}" alt="product" class="img-responsive about-me">
+                    <h3 class="mt-lg-4 mt-3">e agro bhavan is developed with the intention to digitalize krishibhavan activities.</h3>
+                <p class="para mb-3">It helps the farmers to interact with krishi bhavan officers via our application.Farmers can applies for several schemes online.Our application shows the products such as fertilizers,pesticides and agricultural products available in the krishi bhavan and agricultural shops.</p>
+                <p class="para mb-lg-3">Farmers can sell their products to the customers with the help of krishi bhavan.Thus we can have non toxic vegtables and fruits.</p>
+            </div>
+
+            </div>
+            </div>
+</div>
+</section>
+<section class="w3l-stats">
+  <div class="main-w3 ">
+      <div class="container">
+          <div class="right-side">
+                <h3 class="title-big">This web application focuses on small scale farmers who does the farming in a small area of land or using grow bags.</h3>
+                <p class="mt-4 para">We connect the farmers with agriculture officer of that particular area.So the farmers can ask their doubts and concerns regarding crops directly to the agricultural officer via our web application.Most of the farming activities in our region are taken care by the aged people.So it's difficult for them to approach agriculture office for each and every crop related problems.So there is no need to visit the krishi bhavan physically.</p>
+            </div>
+          </div>
+  </div>
+</section>
+<section class="w3l-recent-work">
+	<div class="jst-two-col">
+		<div class="container">
+<div class="row">
+	<div class="my-bio cwp4-text col-lg-6">
+			<h3>This application shows what kind of products are available in krishi bhavan for the customers</h3>
+			<p class="para mt-3 mb-lg-4 ">These products are sold at krishi bhavan by the krishi bhavan officials.The products could be fertilzers,pesticides,different kind of seedlings etc.It shows how many of them are left at krishibhavan.So the customers can check the availability of those products with the help of our application.</p>
+			<a href="about.html" class="action-button btn mt-4">Read more <span class="fa fa-angle-double-right"></span></a>
+	</div>
+
+					</div>
+				</div>
+		  </div>
+	</div>
+	<!-- /team-grids -->
+
+{%endblock%}

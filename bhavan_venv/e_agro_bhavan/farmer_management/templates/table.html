@@ -1,0 +1,27 @@
+{%extends 'layout.html'%}
+{%block content%}
+<br><br><br><br><br>
+
+    <center>
+
+    
+    <form method="post" enctype="multipart/form-data" style="width:40%">
+        <table style="width:100%">
+        {% csrf_token %}
+        {{ form.as_table }}
+     
+            
+        </table>
+    <div>
+     <input type="submit" value="APPLY" style="width: 90px;">
+    </div>
+<br><br>
+<br><br>
+</center>
+
+
+
+<br><br>
+>
+<br><br>
+    {%endblock%}

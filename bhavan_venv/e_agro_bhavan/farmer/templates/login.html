@@ -1,0 +1,22 @@
+{%extends 'layout.html'%}
+{%block content%}
+<br><br><br><br><br>
+<center>
+    <form method="post" enctype="multipart/form-data" style="width: 30%;">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <br><br>
+        <div >
+        <a href="/forgot_password">Forgot password</a>
+    </div><br><br>
+    <div>
+     <input type="submit" value="LOGIN" style="width: 130px;" class="btn-submit-reg">
+    </div>
+    
+<br><br>
+<br><br>
+    </form>
+</center>
+    {%endblock%}

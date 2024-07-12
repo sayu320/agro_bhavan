@@ -1,0 +1,17 @@
+{%extends 'layout.html'%}
+{%block content%}
+<br><br><br><br><br>
+<center>
+    <form method="post" enctype="multipart/form-data" style="width: 30%;">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+    <div>
+     <input type="submit" value="REGISTER" style="width: 130px;">
+    </div>
+<br><br>
+<br><br>
+    </form>
+</center>
+    {%endblock%}

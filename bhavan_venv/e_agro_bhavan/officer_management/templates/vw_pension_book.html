@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+<h2 style="text-align:center">Product Card</h2>
+<br><br>
+<br><br>
+<center>
+    <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/view_applied_schemes">5 Year Plan</a></button>
+    <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/vw_insurance_book">Insurance</a></button>
+    <button style="margin-left: 30px; width: 200px;"><a class="btn btn-ash btn-md" href="/vw_electri_book">Electricity</a></button>
+    <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/vw_pension_book">Pension</a></button>
+    <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/vw_state_h_m_book">State </a></button>
+    <button style="margin-left: 30px; width: 200px;"><a class="btn btn-ash btn-md" href="/vw_pm_k_book">PM</a></button>
+    
+  
+  </center><br><br>
+<!-- 
+<center>
+  <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/view_products">View Product</a></button>
+  <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/add_products">Add Product</a></button>
+  <button style="margin-left: 30px; width: 200px;"><a class="btn btn-ash btn-md" href="/view_add_products">View My Products</a></button>
+  
+  <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/view_booking">My Booking</a></button>
+  
+</center><br><br> -->
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-lg-4" style="width: 160%;">
+    <div class="card" style="width: 160%;">
+        {% for i in a %}
+          <p>  USER NAME :{{ i.uid.name }}</p><br>
+          <p>  USER CONTACT :{{ i.uid.contact_number }}</p><br>
+            {% if i.required_document_for_submission %}
+            <p>REQUIRED DOC:<br><a href="{{ i.required_document_for_submission.url }}" style="width: 60px; height: 60px;" >{{ i.required_document_for_submission.url }}</a></p><br>
+            {% endif %}
+            <p> :{{ i.district }}</p><br>
+            <p> PLACE :{{ i.place }}</p><br>
+            <p> BLOCK :{{ i.block }}</p><br>
+            <p> PINCODE :{{ i.pincode }}</p><br>
+            
+            <p>NAME OF KRISHI BHAVAN :{{ i.name_of_krishibhavan }}</p><br>
+            <p> GENDER :{{ i.gender }}</p><br>
+           
+
+            <p>  LAND AREA:{{ i.land_area }}</p><br>
+            <p> CATEGORY :{{ i.category }}</p><br>
+           
+            <p>FARMING DETAILS :{{ i.farming_details }}</p><br>
+           
+            <p> VILLAGE :{{ i.village }}</p><br>
+            <p> SURVEY NO :{{ i.survey_number }}</p><br>
+            <p> EXPERIENCE :{{ i.years_of_experience }}</p><br>
+            <p> ACCOUNT NO:{{ i.account_number }}</p><br>
+            <p> BANK NAME:{{ i.bank_name }}</p><br>
+            <p>  BRANCH NAME:{{ i.branch_name }}</p><br>
+            
+          
+            <p>DATE OF APPLIED :{{ i.date_of_applying }}</p><br>
+            
+            
+          
+        {% endfor %}
+
+    </div>
+   
+  </div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+{% endblock %}

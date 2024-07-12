@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+.btn.active {
+  background-color: blue;
+  /* Add any additional styling you want for the active state */
+}
+
+
+
+
+</style>
+</head>
+<body>
+  
+<h2 style="text-align:center">Product Card</h2>
+<br><br>
+<br><br>
+
+<center>
+  <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/view_products" onclick="btn()">View Product</a></button>
+  <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/add_products">Add Product</a></button>
+  <button style="margin-left: 30px; width: 200px;"><a class="btn btn-ash btn-md" href="/view_add_products">View My Products</a></button>
+  
+  <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/view_booking">My Booking</a></button>
+  
+</center><br><br>
+<div class="row">
+  {% for i in a %}
+  <div class="col-md-4 col-sm-4 col-lg-4">
+    <div class="card">
+      <img src="{{i.image.url}}" alt="Image of Product" style="width:100%">
+      <h3>{{i.name}}</h3>
+      <p>{{i.description}}</p>
+      <p class="price">{{i.price}}</p>
+      <p>{{i.quantity}}  {{i.Unit}}</p>
+      <button type="button"><a href="/book_prod/{{i.id}}">BOOK</a></button>
+     
+    </div>
+   
+  </div>
+
+  {% endfor %}
+</div>
+
+
+
+
+
+
+</body>
+
+{% endblock %}

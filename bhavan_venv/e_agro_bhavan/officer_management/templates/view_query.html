@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<br><br>
+
+
+    <div class="container">
+        <br><br><br><br>
+        {% if request.session.ut == "farmer" %}
+        <center>
+            <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/req_query">Add Query</a></button>
+            <button style="margin-left: 30px; width: 200px;"><a class="btn btn-ash btn-md" href="/view_query">View My Queries</a></button>
+            
+           {% endif %} 
+            
+            </center><br><br>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">IMAGE</th>
+                    <th scope="col">UID</th>
+                    <th scope="col">DESCRIPTION</th>
+                    
+                    <th scope="col">RESPONSED MESSAGE</th>
+                    {% if request.session.ut == "officer" %}
+                    <th scope="col">RESPONSE</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in a %}
+            <tr >
+                <td><img src="{{ i.image.url }}" style="width: 260px; height: 260px;"></td>
+                <td >{{ i.uid.name }}</td>
+                <td>{{ i.description }}</td>
+                
+                {% if request.session.ut == "officer" %}
+                
+                <td>{{ i.response }}</td>
+                <td><a class="btn btn-success btn-sm" href="/response/{{ i.id }}">respond</a></td>
+                {% endif %}
+
+                {% if request.session.ut == "farmer" %}
+                <td>{{ i.response }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

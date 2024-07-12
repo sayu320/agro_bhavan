@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br>
+<center>
+    <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/view_add_news">View News</a></button>
+    <button style="margin-left: 30px; width: 150px;"><a class="btn btn-ash btn-md" href="/add_news">Add News</a></button>
+    
+    
+    </center><br><br>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">CONTENT</th>
+                    <th scope="col">IMAGE</th>
+                    <th scope="col">EDIT</th>
+                    <th scope="col">DELETE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in a %}
+                <tr>
+                    <td>{{ i.title }}</td>
+                    <td>{{ i.content }}</td>
+                    <td><img src="{{ i.image.url }}" style="width: 60px; height: 60px;" alt="{{ i.title }}"></td>
+                    <td><a class="btn btn-success btn-sm" href="/edit_news/{{ i.id }}">Edit</a></td>
+                    <td><a class="btn btn-danger btn-sm" href="/delete_news/{{ i.id }}" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

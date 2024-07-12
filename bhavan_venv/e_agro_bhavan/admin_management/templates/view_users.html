@@ -1,0 +1,43 @@
+{%extends 'layout.html'%}
+{%block content%}
+<html>
+    <head><title>VIEW CATEGORY</title></head>
+    <body>
+        <br><br><br><br><br><br><br><br><br><br>
+        <table class="table table-borderless table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">NAME</th>
+                    <th scope="col">NUMBER</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">ADDress</th>
+                    <th scope="col">USERTYPE</th>
+                   
+                    
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in a%}
+                <tr>
+                   
+                    
+                    
+                    <td>{{i.name}}</td>
+                    <td>{{i.number}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.usertype}}</td>
+                    
+            
+                    
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        
+    </body>
+</html>
+
+{%endblock%}

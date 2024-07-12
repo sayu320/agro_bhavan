@@ -1,0 +1,111 @@
+
+
+{%extends 'layout.html'%}
+{%block content%}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+</style>
+</head>
+
+<body>
+<body background="{% static 'assets/images/BG image 3.jpg' %}" style="height: 1000px;">
+<h2 style="text-align:center">Schemes </h2>
+<br><br><br><br><br><br>
+<div class="row" >
+  {% for i in a %}
+  <div class="col-md-4 col-sm-4 col-lg-4" >
+    <div class="card" style="width: 300px; height: 300px; color: violet;">
+            <p style=" color:blue">{{i.scheme_name}}</p> <br><br><br>   
+            <p>{{i.description}}</p>  <br><br><br>
+            {% if i.image %}
+              <img src="{{i.image.url}}" alt="Image of Product" style="width:100%">  
+            {% endif %}
+          
+            {% if i.scheme_name == "Electricity" %}
+            <p style="color:red"><a href="/apply_ele/{{i.id}}">APPLY</a></p>
+            {% endif %}
+
+            {% if i.scheme_name == "Pension" %}
+            <p style="color:red"><a href="/apply_pen/{{i.id}}">APPLY</a></p>
+            {% endif %}
+
+            {% if i.scheme_name == "SHM" %}
+            <p style="color:red"><a href="/apply_SHM/{{i.id}}">APPLY</a></p>
+            {% endif %}
+
+            {% if i.scheme_name == "PM Kisan" %}
+            <p style="color:red"><a href="/apply_PMK/{{i.id}}">APPLY</a></p>
+            {% endif %}
+
+            {% if i.scheme_name == "Five year plan" %}
+
+            <p style="color:red"><a href="/fy_apply_now">APPLY</a></p>
+            {% endif %}
+
+
+            {% if i.scheme_name == "Insurance" %}
+            <p style="color:red"><a href="/view_subscheme/{{i.id}}">VIEW SUB SCHEMES</a></p>
+            {% endif %}
+            
+    </div>
+   
+  </div><br><br>
+
+  {% endfor %}
+</div>
+
+
+
+
+
+
+</body>
+
+{% endblock %}

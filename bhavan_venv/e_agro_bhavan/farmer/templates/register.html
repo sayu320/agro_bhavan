@@ -1,0 +1,21 @@
+{%extends 'layout.html'%}
+{%block content%}
+<br><br><br><br><br>
+
+<button style="margin-left: 30px; width: 100px;"><a class="btn btn-success btn-sm" href="/farmer">Farmer</a></button>
+<button style="margin-left: 30px; width: 100px;"><a class="btn btn-success btn-sm" href="/shop_register">Shop</a></button>
+<button style="margin-left: 30px; width: 100px;"><a class="btn btn-success btn-sm" href="/officer">Officer</a></button>
+<center>
+    <form method="post" enctype="multipart/form-data"  style="width: 30%;">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+    <div>
+     <input type="submit" value="REGISTER" style="width: 130px;" class="btn-submit-reg">
+    </div>
+<br><br>
+<br><br>
+    </form>
+</center>
+    {%endblock%}

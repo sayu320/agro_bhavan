@@ -1,0 +1,336 @@
+{% load static %}
+<!--
+   Author: W3layouts
+   Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+	
+	<script src="{% static 'assets/js/validation.js'%}"></script>
+	<script src="{% static 'assets/js/active.js'%}"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>KRISHI BHAVAN</title>
+		<style>
+			/* Reset some default styles for consistent rendering across browsers */
+			body, h1, p {
+				margin: 0;
+				padding: 0;
+			}
+	
+			body {
+				font-family: Arial, sans-serif;
+			}
+	
+			header {
+				background-color: #333;
+				color: #fff;
+				padding: 10px;
+			}
+	
+			nav {
+				background-color: #444;
+				color: #fff;
+				padding: 10px;
+			}
+	
+			nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+	
+			nav ul li {
+				display: inline;
+				margin-right: 20px;
+			}
+	
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+	
+			.hero-image {
+				width: 100%;
+				height: 400px;
+				background-image: url('your-hero-image.jpg');
+				background-size: cover;
+				background-position: center;
+			}
+	
+			.content {
+				padding: 20px;
+			}
+	
+			.footer {
+				background-color: #333;
+				color: #fff;
+				text-align: center;
+				padding: 10px;
+			}
+		</style>
+	
+	
+
+
+
+
+
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Go Trip a Travel Category  Responsive Web Template| Home :: W3layouts</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style-starter.css'%}">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  </head>
+  <body id="home">
+<section class=" ">
+	<!--header-->
+	<header id="site-header" class="fixed-top">
+		<div class="">
+			<nav class="navbar navbar-expand-lg navbar-dark stroke">
+				
+				<!-- if logo is image enable this   
+			<a class="navbar-brand" href="#index.html">
+				<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+			</a> -->
+				<button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+					<span class="navbar-toggler-icon fa icon-close fa-times"></span>
+					
+				</button>
+	  
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+					{% if request.session.ut == "farmer" %}
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="/view_schemes">Schemes<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/view_products">Product<span class="sr-only">(current)</span></a>
+						</li>
+						<!-- <li class="nav-item active">
+							<a class="nav-link" href="/add_products">add products<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/view_add_products">view add products<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/view_booking">view booking<span class="sr-only">(current)</span></a>
+						</li> -->
+						<li class="nav-item active">
+							<a class="nav-link" href="/req_query">Query<span class="sr-only">(current)</span></a>
+						</li>
+
+						<!-- <li class="nav-item active">
+							<a class="nav-link" href="/view_query">view query<span class="sr-only">(current)</span></a>
+						</li> -->
+
+
+						<li class="nav-item active">
+							<a class="nav-link" href="/news">News<span class="sr-only"></span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/logout">Logout</a>
+						</li>
+					</ul>
+
+					{% elif request.session.ut == "admin" %}
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item @@about__active">
+							<a class="nav-link" href="/view_user">VIEW USER</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/">officer<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item @@about__active">
+							<a class="nav-link" href="/about">shops</a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/logout">LOGOUT</a>
+						</li>
+					</ul>
+
+					{% elif request.session.ut == "officer" %}
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="/view_sub_schemes">Schemes<span class="sr-only">(current)</span></a>
+						</li>
+						<!-- <li class="nav-item active">
+							<a class="nav-link" href="/view_sub_schemes">view schemes<span class="sr-only">(current)</span></a>
+						</li> -->
+						<!-- <li class="nav-item @@about__active">
+							<a class="nav-link" href="/add_products">products</a>
+						</li> -->
+                        <li class="nav-item active">
+							<a class="nav-link" href="/view_add_products">Products<span class="sr-only">(current)</span></a>
+						</li>
+						<!-- <li class="nav-item active">
+							<a class="nav-link" href="/view_booking">view booking<span class="sr-only">(current)</span></a>
+						</li> -->
+						<li class="nav-item @@services__active">
+							<a class="nav-link" href="/view_query">Query</a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/add_news">News<span class="sr-only">(current)</span></a>
+						</li>
+						<!-- <li class="nav-item active">
+							<a class="nav-link" href="/view_add_news">view add news<span class="sr-only">(current)</span></a>
+						</li> -->
+						<li class="nav-item active">
+							<a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/logout">Logout</a>
+						</li>
+					</ul>
+
+					{% elif request.session.ut == "shops" %}
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="/prod">products<span class="sr-only">(current)</span></a>
+						</li>
+						<!-- <li class="nav-item active">
+							<a class="nav-link" href="/view_add_prod">view add products<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="/view_booking">view booking<span class="sr-only">(current)</span></a>
+						</li> -->
+						<li class="nav-item active">
+							<a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/logout">LOGOUT</a>
+						</li>
+					</ul>
+                    {% else %}
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item @@about__active">
+							<a class="nav-link" href="/about">About</a>
+						</li>
+						
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/contact">Contact</a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/view_officers">View Officers</a>
+						</li>
+						
+							
+							
+				
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/farmer">Register</a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="/login">Login</a>
+						</li>
+
+
+					</ul>
+					{% endif %}
+				<ul class="navbar-nav ml-auto">
+						
+						 <!-- <li class="nav-item" title="Search"><a href="#search" class="search-search nav-link"><span class="fa fa-search mr-2" aria-hidden="true"></span></a></li> -->
+				<!-- search -->
+						 <div class="search-right">
+					<!-- search popup -->
+					<!-- <div id="search" class="pop-overlay">
+						<div class="popup">
+							<form action="#" method="GET" class="d-flex">
+								<input type="search" placeholder="Search.." name="search" required="required" autofocus>
+								<button type="submit">Search</button>
+							</form>
+
+							<a class="close" href="#close">&times;</a>
+						</div>
+					</div> -->
+					<!-- /search popup -->
+				</div>
+					<!--/ search -->
+					</ul>
+				</div>
+				        <!-- toggle switch for light and dark theme -->
+						<div class="mobile-position">
+							<label class="theme-selector">
+							  <input type="checkbox" id="themeToggle">
+							  <i class="gg-sun"></i>
+							  <i class="gg-moon"></i>
+							</label>
+						  </div>
+						  <!-- //toggle switch for light and dark theme -->
+			</nav>
+		</div>
+	  </header>
+</section>
+
+
+{%block content%}
+{%endblock%}
+
+
+      
+
+			</div>
+			
+			
+			</div>
+			</div>
+			
+		</div>
+		<div class=" bottom-copies text-center">
+			<!-- <p class="copy-footer-29">© 2020 Go Trip. All rights reserved | Designed by <a href="//w3layouts.com">W3layouts</a></p> -->
+		  </div>
+		</div>
+	</div>
+  </section>
+
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-chevron-up"></span>
+</button>
+<script>
+	
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+</body>
+
+</html>
+
+
